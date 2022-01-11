@@ -45,7 +45,7 @@
             </div>
             <div class="card-footer">
                 <h6>total price : {{$total}} sp
-                <button class="btn btn-outline-success float-end">checkout</button>
+                <a href="{{url('checkout')}}" class="btn btn-outline-success float-end">checkout</a>
                 </h6>
             </div>
         </div>
