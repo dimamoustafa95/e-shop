@@ -79,6 +79,8 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <hr>
+                        <button class="btn btn-primary float-end">place order</button>
                     </div>
                 </div>
             </div>
