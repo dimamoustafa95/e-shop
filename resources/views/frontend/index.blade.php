@@ -61,7 +61,7 @@
                         <div class="item">
                             <a href="{{url('category/'.$item->slug)}}">
                             <div class="card">
-                                <img src="{{asset('assets/uploads/category/'.$item->image)}}" alt="product image">
+                                <img src="{{asset('assets/uploads/category/'.$item->image)}}" alt="category image">
                                 <div class="card-body">
                                     <h5>{{$item->name}}</h5>
                                   <p>
