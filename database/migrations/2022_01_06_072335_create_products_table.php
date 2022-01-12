@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->mediumText('small_description');
             $table->longText('description');
-            $table->longText('original_price')->nullable();;
+            $table->longText('original_price')->nullable();
             $table->longText('selling_price')->nullable();
             $table->string('image')->nullable();
             $table->string('qty')->nullable();
