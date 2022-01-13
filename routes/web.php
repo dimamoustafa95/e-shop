@@ -35,8 +35,6 @@ Route::middleware(['auth'])->group(function (){
 
 });
 
-
-
 Route::get('/', 'Frontend\FrontendController@index')->name('home');
 Route::group(['middleware' => ['auth','isAdmin']], function () {
     Route::get('/dashboard','Admin\FrontendController@index');
@@ -54,6 +52,13 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
     Route::get('edit-product/{id}','Admin\ProductController@edit');
     Route::put('update-product/{id}','Admin\ProductController@update');
     Route::get('delete-product/{id}','Admin\ProductController@destroy');
+
+    Route::get('users','Admin\FrontendController@users');
+
+    Route::get('orders','Admin\OrderController@index');
+    Route::get('admin/view-order/{id}','Admin\OrderController@view');
+    Route::put('update-order/{id}','Admin\OrderController@updateOrder');
+    Route::get('order-history','Admin\OrderController@orderHistory');
 });
 
 

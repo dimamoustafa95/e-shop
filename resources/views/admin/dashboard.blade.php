@@ -1,18 +1,4 @@
 
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +8,8 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{asset('admin/assets/img/favicon.png')}}">
     <title>
-        Material Dashboard 2 by Creative Tim
+       E-Shop Dashboard
+        @yield('title')
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -60,38 +47,40 @@
             </li>
             <li class="nav-item @if(\Illuminate\Support\Facades\Request::is('categories'))active bg-gradient-primary  @endif">
                 <a class="nav-link  " href="{{url('categories')}}">
-
                         <i class="material-icons">table_view</i>
-
-                    <p>categories</p>
+                    <p>Categories</p>
                 </a>
             </li>
             <li class="nav-item @if(\Illuminate\Support\Facades\Request::is('add-category'))active bg-gradient-primary  @endif">
                 <a class="nav-link  " href="{{url('add-category')}}">
-
                     <i class="material-icons">receipt_long</i>
-
-                    <p>add category</p>
+                    <p>Add Category</p>
                 </a>
             </li>
             <li class="nav-item  @if(\Illuminate\Support\Facades\Request::is('products'))active bg-gradient-primary  @endif">
                 <a class="nav-link  " href="{{url('products')}}">
-
                     <i class="material-icons">table_view</i>
-
-                    <p>products</p>
+                    <p>Products</p>
                 </a>
             </li>
             <li class="nav-item @if(\Illuminate\Support\Facades\Request::is('add-product'))active bg-gradient-primary  @endif">
                 <a class="nav-link  " href="{{url('add-product')}}">
-
                     <i class="material-icons">receipt_long</i>
-
-                    <p>add product</p>
+                    <p>Add Product</p>
                 </a>
             </li>
-
-
+            <li class="nav-item  @if(\Illuminate\Support\Facades\Request::is('orders'))active bg-gradient-primary  @endif">
+                <a class="nav-link  " href="{{url('orders')}}">
+                    <i class="material-icons">table_view</i>
+                    <p>Orders</p>
+                </a>
+            </li>
+            <li class="nav-item @if(\Illuminate\Support\Facades\Request::is('users'))active bg-gradient-primary  @endif">
+                <a class="nav-link  " href="{{url('users')}}">
+                    <i class="material-icons">person</i>
+                    <p>Users</p>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('logout') }}"   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
