@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 >Order view
-                            <a href="{{url('orders')}}" class="btn btn-warning text-white float-end">Back</a>
+                            <a href="{{url('orders')}}" class="btn btn-warning text-white float-end bg-gradient-primary">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">

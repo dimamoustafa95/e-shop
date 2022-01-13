@@ -9,7 +9,7 @@
                     <div class="card">
                             <div class="card-header">
                                 <h4>New Orders
-                                    <a href="{{'order-history'}}" class="btn btn-warning float-end">Order History</a>
+                                    <a href="{{'order-history'}}" class="btn btn-warning float-end bg-gradient-primary">Order History</a>
                                 </h4>
                             </div>
                             <div class="card-body">
