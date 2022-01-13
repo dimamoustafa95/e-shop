@@ -16,14 +16,15 @@ class CheckoutController extends Controller
     public function index(){
 
         $old_cartItem=Cart::query()->where('user_id',Auth::id())->get();
-        foreach($old_cartItem as $item){
-            if(!Product::query()->where('id',$item->prod_id)->where('qty','>=',$item->prod_qty)->exists()){
+        foreach($old_cartItem as $item) {
+            if (!Product::query()->where('id', $item->prod_id)->where('qty', '>=', $item->prod_qty)->exists()) {
 
-                $removeItem = Cart::query()->where('user_id',Auth::id())->where('prod_id',$item->prod_id)->first();
+                $removeItem = Cart::query()->where('user_id', Auth::id())->where('prod_id', $item->prod_id)->first();
                 $removeItem->delete();
             }
-            $cartItem=Cart::query()->where('user_id',Auth::id())->get();
         }
+            $cartItem=Cart::query()->where('user_id',Auth::id())->get();
+
         return view('frontend.checkout',compact('cartItem'));
     }
 
@@ -41,6 +42,14 @@ class CheckoutController extends Controller
         $order->state = $request->input('state');
         $order->country = $request->input('country');
         $order->pin_code = $request->input('pin_code');
+
+        //to calculate the total price
+        $total=0;
+        $cartItem_total=Cart::query()->where('user_id',Auth::id())->get();
+        foreach ($cartItem_total as $prod){
+            $total += $prod->products->selling_price;
+        }
+        $order->total_price=$total;
         $order->tracking_no = 'item'.rand(1111,9999);
         $order->save();
 

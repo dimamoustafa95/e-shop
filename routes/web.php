@@ -30,6 +30,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('cart','Frontend\CartController@viewCart');
     Route::get('checkout','Frontend\CheckoutController@index');
     Route::post('place-order','Frontend\CheckoutController@placeOrder');
+    Route::get('my-orders','Frontend\UserController@index');
+    Route::get('view-order/{id}','Frontend\UserController@view');
+
 });
 
 

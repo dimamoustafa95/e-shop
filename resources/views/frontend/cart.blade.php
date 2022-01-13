@@ -8,12 +8,12 @@
             <h6 class="mb-0">
                 <a href="{{url('/')}}">Home</a> /
                 <a href="{{url('cart')}}">Cart</a>
-
             </h6>
         </div>
     </div>
     <div class="container my-5">
         <div class="card shadow product_data">
+            @if($cartData->count() >0)
             <div class="card-body">
                 @php $total=0; @endphp
                 @foreach($cartData as $item)
@@ -54,6 +54,12 @@
                 </h6>
             </div>
         </div>
+        @else
+            <div class="card-body text-center">
+                <h2>Your <i class="fa fa-shopping-cart"></i>Cart is empty</h2>
+                <a href="{{url('category')}}" class="btn btn-outline-primary float-end">Continue shopping</a>
+            </div>
+            @endif
     </div>
 
 
