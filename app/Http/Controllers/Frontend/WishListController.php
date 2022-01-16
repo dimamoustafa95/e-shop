@@ -50,9 +50,12 @@ class WishListController extends Controller
             }
         } else {
 
-//            return response()->json(['status' => "login to continue"]);
-//        }
             return view('frontend.cart', compact('wish'));
         }
+    }
+    public function wishListCount(){
+
+        $wish=WishList::query()->where('user_id',Auth::id())->count();
+        return response()->json(['count'=>$wish]);
     }
 }

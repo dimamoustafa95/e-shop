@@ -21,7 +21,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('category','Frontend\FrontendController@category');
 Route::get('category/{slug}','Frontend\FrontendController@viewCategory');
 Route::get('category/{cate_slug}/{pro_slug}','Frontend\FrontendController@viewProduct');
+
 \Illuminate\Support\Facades\Auth::routes();
+
+Route::get('load-cart-data','Frontend\CartController@cartCount');
+Route::get('load-wishlist-data','Frontend\WishListController@wishListCount');
+
 
 Route::post('add-to-cart','Frontend\CartController@addProduct');
 Route::post('delete-cart-item','Frontend\CartController@deleteProduct');

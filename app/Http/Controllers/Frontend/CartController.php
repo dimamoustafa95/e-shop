@@ -78,4 +78,9 @@ class CartController extends Controller
             }
         }
     }
+    public function cartCount(){
+
+        $cartCount=Cart::query()->where('user_id',Auth::id())->count();
+        return response()->json(['count'=>$cartCount]);
+    }
 }
