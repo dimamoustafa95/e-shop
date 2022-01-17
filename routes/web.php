@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('view-order/{id}','Frontend\UserController@view');
 
     Route::get('wishList','Frontend\WishListController@viewWishList');
+    Route::post('proceed-to-pay','Frontend\CheckoutController@razorPayCheck');
 });
 
 Route::get('/', 'Frontend\FrontendController@index')->name('home');

@@ -42,6 +42,8 @@ class CheckoutController extends Controller
         $order->state = $request->input('state');
         $order->country = $request->input('country');
         $order->pin_code = $request->input('pin_code');
+        $order->payment_mode = $request->input('payment_mode');
+        $order->payment_id = $request->input('payment_id');
 
         //to calculate the total price
         $total=0;
@@ -79,14 +81,46 @@ class CheckoutController extends Controller
             $user->pin_code = $request->input('pin_code');
             $user->update();
         }
-        $cartItem=Cart::query()->where('user_id',Auth::id())->get();
-        Cart::destroy('$cartItem');
+        Cart::query()->where('user_id',Auth::id())->delete();
+        
+         if($request->input('payment_mode') =="Paid by Razorpay"){
+
+             return response()->json(['status'=>"order placed successfully"]);
+         }
         return redirect('/')->with('status',"order placed successfully");
-
-
-
-
-
     }
 
+    public function razorPayCheck(Request $request)
+    {
+
+        $cartItem = Cart::query()->where('user_id', Auth::id())->get();
+        $total_price = 0;
+        foreach ($cartItem as $item) {
+            $total_price += $item->products->selling_price * $item->prod_qty;
+        }
+        $firstName = $request->input('firstName');
+        $lastName = $request->input('lastName');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $address1 = $request->input('address1');
+        $address2 = $request->input('address2');
+        $city = $request->input('city');
+        $state = $request->input('state');
+        $country = $request->input('country');
+        $pincode = $request->input('pincode');
+
+        return response()->json([
+            'firstName' => $firstName,
+            'lastName' => $lastName,
+            'email' => $email,
+            'phone' => $phone,
+            'address1' => $address1,
+            'address2' => $address2,
+            'city'=>$city,
+            'state'=>$state,
+            'country'=>$country,
+            'pincode'=>$pincode,
+            'total_price'=>$total_price
+    ]);
+}
 }

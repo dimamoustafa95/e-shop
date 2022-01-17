@@ -82,6 +82,7 @@
                     <div class="card-body">
                         <h6>Order Details</h6>
                         <hr>
+                        @if($cartItem->count()>0)
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -91,8 +92,10 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @php $total=0;@endphp
                         @foreach($cartItem as $cart)
                             <tr>
+                                @php $total +=( $cart->products->selling_price * $cart->prod_qty)@endphp
                             <td>{{$cart->products->name}}</td>
                                 <td>{{$cart->prod_qty}}</td>
                                 <td>{{$cart->products->selling_price}}</td>
@@ -100,13 +103,21 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <h6 class="px-2">Grand Total<span class="float-end"> {{$total}} sp</span> </h6>
                         <hr>
+                        <input type="hidden" name="payment_mode" value="COD">
                         <button type="submit" class="btn btn-success float-end w-100">place order | COD</button>
                         <button type="button" class="btn btn-primary w-100 mt-3 razorpay-btn">Pay with Razorpay</button>
+                        @else
+                            <h4 class="text-center">No Product in Cart</h4>
+                            @endif
                     </div>
                 </div>
             </div>
         </div>
         </form>
     </div>
+@endsection
+@section('scripts')
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 @endsection
