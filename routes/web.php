@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function (){
     Route::get('my-orders','Frontend\UserController@index');
     Route::get('view-order/{id}','Frontend\UserController@view');
 
+    Route::post('add-rating','Frontend\RatingController@add');
+
     Route::get('wishList','Frontend\WishListController@viewWishList');
     Route::post('proceed-to-pay','Frontend\CheckoutController@razorPayCheck');
 });

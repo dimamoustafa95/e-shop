@@ -82,7 +82,7 @@ class CheckoutController extends Controller
             $user->update();
         }
         Cart::query()->where('user_id',Auth::id())->delete();
-        
+
          if($request->input('payment_mode') =="Paid by Razorpay"){
 
              return response()->json(['status'=>"order placed successfully"]);
