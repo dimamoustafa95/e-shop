@@ -76,7 +76,6 @@
                    @php $rateNum= number_format($rating_value) @endphp
                     <div class="rating">
                         @for($i=1; $i<= $rateNum; $i++)
-
                         <i class="fa fa-star checked"></i>
                         @endfor
                             @for($j=$rateNum+1; $j<= 5; $j++)
@@ -115,28 +114,53 @@
                                 <button type="button" class="btn btn-success me-3 addToCartBtn float-start">Add to Cart<i class="fa fa-shopping-cart"></i></button>
                             @endif
                             <button type="button" class="btn btn-success me-3 addToWishListBtn float-start ">Add to Wishlist<i class="fa fa-heart"></i></button>
-
+                        </div>
                         </div>
                     </div>
-
-                </div>
                     <div class="col-md-12">
                         <hr>
                         <h3>Description</h3>
                         <p class="mt-3">{!! $product->description !!}</p>
-
-                        </div>
+                    </div>
                     <hr>
-                    <div class="col-md-12">
-                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Rate this Product
-                        </button>
-                    </div>
-                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Rate this Product
+                            </button>
+                            <a href="{{url('add-review/'.$product->slug.'/user-review')}}" class="btn btn-link" >
+                                Write a Review
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            @foreach($reviews as $review)
+                                <div class="user_review">
+                                    <label for="">{{$review->user->name.' '.$review->user->l_name}}</label>
+                                    @if($review->user_id == \Illuminate\Support\Facades\Auth::id())
+                                    <a href="{{url('edit-review/'.$product->slug.'/user-review')}}">edit</a>
+                                    @endif
+                                    <br>
+                                    @php $rating=\App\Rating::query()->where('prod_id',$product->id)->where('user_id',$review->user->id)->first(); @endphp
+                                    @if($rating)
+                                        @php $user_rated= $rating->stars_rated @endphp
+                                        @for($i=1; $i<= $user_rated; $i++)
+                                            <i class="fa fa-star checked"></i>
+                                        @endfor
+                                        @for($j=$user_rated+1; $j<= 5; $j++)
+                                            <i class="fa fa-star"></i>
+                                        @endfor
+                                        @endif
+                                    <small>reviewed on {{$review->created_at->format('d M Y')}}</small>
+                                    <p>{{$review->user_review}}</p>
+                                </div>
+                            @endforeach
+                        </div>
+
                 </div>
             </div>
         </div>
-
+    </div>
 @endsection
 
 

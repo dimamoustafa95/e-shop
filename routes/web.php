@@ -42,6 +42,11 @@ Route::middleware(['auth'])->group(function (){
     Route::get('view-order/{id}','Frontend\UserController@view');
 
     Route::post('add-rating','Frontend\RatingController@add');
+    Route::get('add-review/{product_slug}/user-review','Frontend\ReviewController@add');
+
+    Route::post('add-review','Frontend\ReviewController@create');
+    Route::get('edit-review/{product_slug}/user-review','Frontend\ReviewController@edit');
+    Route::put('update-review','Frontend\ReviewController@update');
 
     Route::get('wishList','Frontend\WishListController@viewWishList');
     Route::post('proceed-to-pay','Frontend\CheckoutController@razorPayCheck');
