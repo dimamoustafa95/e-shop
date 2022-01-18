@@ -19,8 +19,8 @@ class ReviewController extends Controller
         if($product) {
 
             $product_id = $product->id;
-            $review_ = Review::query()->where('user_id', Auth::id())->where('prod_id', $product_id)->first();
-            if ($review_) {
+            $review = Review::query()->where('user_id', Auth::id())->where('prod_id', $product_id)->first();
+            if ($review) {
 
                 return view('frontend.reviews.edit',compact('review'));
             }
