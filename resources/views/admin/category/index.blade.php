@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('layouts.admin')
 
 @section('content')
     <div class="card">
@@ -24,8 +24,8 @@
                     <td>{{$item->description}}</td>
 
                     <td> <img src="{{ asset('assets/uploads/category/' . $item->image) }}" width="200px;" alt="image here" /> </td>
-                    <td><a href="{{url('edit-category/'.$item->id)}}" class="btn btn-primary" >edit</a>
-                        <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-primary" style="margin-left: 10px">delete</a>
+                    <td><a href="{{url('edit-category/'.$item->id)}}" class="btn btn-primary bg-gradient-primary" >edit</a>
+                        <a href="{{url('delete-category/'.$item->id)}}" class="btn btn-primary bg-gradient-primary" style="margin-left: 10px">delete</a>
                     </td>
                 </tr>
                 @endforeach

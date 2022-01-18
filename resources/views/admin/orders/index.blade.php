@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('layouts.admin')
 @section('title')
     Orders
 @endsection
@@ -31,7 +31,7 @@
                                             <td>{{$item->total_price}}</td>
                                             <td>{{$item->status =='0'?'pending':'completed'}}</td>
                                             <td>
-                                                <a href="{{url('admin/view-order/'.$item->id)}}" class="btn btn-primary">View</a>
+                                                <a href="{{url('admin/view-order/'.$item->id)}}" class="btn btn-primary bg-gradient-primary">View</a>
                                             </td>
                                     </tr>
                                     @endforeach

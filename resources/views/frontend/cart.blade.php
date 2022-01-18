@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="container my-5">
-        <div class="card shadow product_data">
+        <div class="card shadow cartData">
             @if($cartData->count() >0)
             <div class="card-body">
                 @php $total=0; @endphp

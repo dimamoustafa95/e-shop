@@ -1,13 +1,13 @@
-@extends('admin.dashboard')
+@extends('layouts.admin')
 @section('title')
    view Orders
 @endsection
 @section('content')
-    <div class="container py-3">
+    <div class="container py-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-primary">
                         <h4 >Order view
                             <a href="{{url('orders')}}" class="btn btn-warning text-white float-end bg-gradient-primary">Back</a>
                         </h4>

@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('layouts.admin')
 
 @section('content')
     <div class="card">
@@ -42,8 +42,8 @@
                    <div class="col-md-12">
                        <input type="file" class="form-control" name="image">
                    </div>
-                   <div class="col-md-12">
-                       <button type="submit" class="btn btn-primary" >Submit</button>
+                   <div class="col-md-12 mt-3">
+                       <button type="submit" class="btn btn-primary bg-gradient-primary" >Submit</button>
                    </div>
 
                </div>

@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('layouts.admin')
 
 @section('content')
     <div class="card">
@@ -22,10 +22,6 @@
                         <label for="">Name</label>
                         <input type="text" class="form-control" name="name">
                     </div>
-{{--                    <div class="col-md-6 mb-3">--}}
-{{--                        <label for="">Slug</label>--}}
-{{--                        <input type="text" class="form-control" name="slug">--}}
-{{--                    </div>--}}
                     <div class="col-md-12 mb-3" >
                         <label for="">description</label>
                         <textarea name="description" rows="3" class="form-control"></textarea>
@@ -74,7 +70,7 @@
                         <input type="file" class="form-control" name="image">
                     </div>
                     <div class="col-md-12 mb-3">
-                        <button type="submit" class="btn btn-primary" >Submit</button>
+                        <button type="submit" class="btn btn-primary bg-gradient-primary" >Submit</button>
                     </div>
 
                 </div>

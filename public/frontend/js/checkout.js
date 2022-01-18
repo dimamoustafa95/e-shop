@@ -130,7 +130,6 @@ $(document).ready(function () {
                 data:data,
                 success:function (response) {
 
-                    // alert(response.total_price)
                     var options = {
                         "key": "rzp_test_HUIQcRGZIQ6FZF", // Enter the Key ID generated from the Dashboard
                         "amount": response.total_price*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -140,7 +139,6 @@ $(document).ready(function () {
                         "image": "https://example.com/your_logo",
                         // "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
                         "handler": function (responsea){
-                            // alert(responsea.razorpay_payment_id);
                             $.ajax({
                                 method:"POST",
                                 url: "/place-order",
@@ -160,8 +158,10 @@ $(document).ready(function () {
                                 },
                                 success:function (responseb) {
 
-                                    swal(responseb.status);
-                                    window.location.href="/my-orders";
+                                    swal(responseb.status)
+                                        .then((value) => {
+                                            window.location.href="/my-orders";
+                                    });
                                 }
                             });
                         },
