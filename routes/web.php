@@ -22,6 +22,9 @@ Route::get('category','Frontend\FrontendController@category');
 Route::get('category/{slug}','Frontend\FrontendController@viewCategory');
 Route::get('category/{cate_slug}/{pro_slug}','Frontend\FrontendController@viewProduct');
 
+Route::get('product-list','Frontend\FrontendController@productListAjax');
+Route::post('search-product','Frontend\FrontendController@searchProduct');
+
 \Illuminate\Support\Facades\Auth::routes();
 
 Route::get('load-cart-data','Frontend\CartController@cartCount');

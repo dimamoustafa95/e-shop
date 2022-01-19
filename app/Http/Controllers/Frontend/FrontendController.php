@@ -59,10 +59,42 @@ class FrontendController extends Controller
             }
         }
         else{
-            return redirect('/')->with('status',"no such category found");
+                return redirect('/')->with('status',"no such category found");
+            }
+
+    }
+
+
+    public function productListAjax(){
+
+        $products = Product::query()->select('name')->where('status','0')->get();
+        $data = [];
+        foreach ($products as $item){
+            $data[] = $item['name'];
+        }
+        return $data;
+    }
+
+    public function searchProduct(Request $request){
+
+        $searched_products = $request->product_name;
+
+        if($searched_products != ""){
+
+            $product = Product::query()->where("name","LIKE","%$searched_products%")->first();
+            if($product){
+
+                return redirect('category/'.$product->category->slug.'/'.$product->slug);
+            }
+            else{
+
+                return redirect()->back()->with("status","No Product matched your search");
+            }
+        }
+        else{
+            return redirect()->back();
         }
 
-        }
 
-
+    }
 }

@@ -23,6 +23,7 @@
     <!-- Google Font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- Font Awesome  -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
          <style>
@@ -36,6 +37,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">E-Shop</a>
+            <div class="search-bar">
+                <form action="{{url('search-product')}}" method="POST">
+                    @csrf
+                    <div class="input-group">
+                            <input type="search" id="search_product" name="product_name" class="form-control" required placeholder="Search products"  aria-describedby="basic-addon1">
+                        <button type="submit" class="input-group-text" ><i class="fa fa-search"></i> </button>
+                    </div>
+                </form>
+            </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -100,6 +110,28 @@
 <script src="{{asset('frontend/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('frontend/js/custom.js')}}"></script>
 <script src="{{asset('frontend/js/checkout.js')}}"></script>
+
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script>
+
+        var availableTags = [
+        ];
+        $.ajax({
+            method: "GET",
+            url: "/product-list",
+            success: function (response) {
+                startAutoComplete(response);
+            }
+        });
+        function startAutoComplete(availableTags){
+            $( "#search_product" ).autocomplete({
+                source: availableTags
+
+            });
+        }
+
+</script>
+
 <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
 @if(session('status'))
         <script>
