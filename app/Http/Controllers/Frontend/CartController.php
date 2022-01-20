@@ -22,7 +22,6 @@ class CartController extends Controller
             $product_check = Product::query()->where('id', $product_id)->first();
             if ($product_check) {
 
-
                 if (Cart::query()->where('prod_id', $product_id)->where('user_id', Auth::id())->exists()) {
 
                     return response()->json(['status' => $product_check->name . "Already Added to cart"]);

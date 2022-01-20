@@ -52,7 +52,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('category')}}">Categories</a>
@@ -87,7 +87,6 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{url('my-orders')}}">My Orders</a></li>
-                                <li><a class="dropdown-item" href="#">My Profile</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
