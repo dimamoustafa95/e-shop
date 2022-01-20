@@ -86,6 +86,9 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if(\Illuminate\Support\Facades\Auth::user()["role_as"] == 1)
+                                    <li><a class="dropdown-item" href="{{ url('/dashboard') }}">My Dashboard</a></li>
+                                @endif
                                 <li><a class="dropdown-item" href="{{url('my-orders')}}">My Orders</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}
                                     </a>
