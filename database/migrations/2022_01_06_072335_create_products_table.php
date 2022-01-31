@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->mediumText('meta_keywords')->nullable();
             $table->mediumText('meta_description')->nullable();
             $table->timestamps();
+            $table->softDeletes('deleted_at','0');
         });
     }
 

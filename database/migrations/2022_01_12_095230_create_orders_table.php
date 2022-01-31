@@ -33,6 +33,7 @@ class CreateOrdersTable extends Migration
             $table->string('message')->nullable();
             $table->string('tracking_no');
             $table->timestamps();
+            $table->softDeletes('deleted_at','0');
         });
     }
 
