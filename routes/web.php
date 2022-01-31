@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function (){
 });
 
 Route::get('/', 'Frontend\FrontendController@index')->name('home');
+Route::get('/home', 'Frontend\FrontendController@index');
 Route::group(['middleware' => ['auth','isAdmin']], function () {
     Route::get('/dashboard','Admin\FrontendController@index');
 

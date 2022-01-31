@@ -24,11 +24,11 @@
                     </div>
                     <div class="col-md-12 mb-3" >
                         <label for="">description</label>
-                        <textarea name="description" rows="3" class="form-control"></textarea>
+                        <textarea name="description" id="description" rows="3" class="form-control"></textarea>
                     </div>
                     <div class="col-md-12 mb-3" >
                         <label for="">small description</label>
-                        <textarea name="small_description" rows="3" class="form-control"></textarea>
+                        <textarea name="small_description" id="small_description" rows="3" class="form-control"></textarea>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="">original price</label>

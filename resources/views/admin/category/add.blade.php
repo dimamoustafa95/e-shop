@@ -17,7 +17,7 @@
 
                    <div class="col-md-12" >
                        <label for="">description</label>
-                   <textarea name="description" rows="3" class="form-control"></textarea>
+                   <textarea name="description" id="description" rows="3" class="form-control"></textarea>
                    </div>
                    <div class="col-md-6 mb-3">
                        <label for="">Status</label>

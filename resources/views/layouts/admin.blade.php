@@ -18,6 +18,18 @@
     <link href="{{asset('admin/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="{{asset('https://kit.fontawesome.com/42d5adcbca.js')}}" crossorigin="anonymous"></script>
+    <!-- WYSIWYG  -->
+    <script src="https://cdn.tiny.cloud/1/mftuxfeyea7zflney10431g2vd4h90djm0vds4fdo57zu1li/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#description'
+        });
+        tinymce.init({
+            selector: '#small_description'
+        });
+    </script>
+
     <!-- Material Icons -->
     <link href="{{asset('https://fonts.googleapis.com/icon?family=Material+Icons+Round')}}" rel="stylesheet">
     <!-- CSS Files -->
@@ -225,6 +237,7 @@
     <script src="{{asset('admin/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('admin/assets/js/plugins/chartjs.min.js')}}"></script>
     <script src="{{asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+    @yield('scripts')
     @if(session('status'))
         <script>
             swal("{{session('status')}}");
@@ -491,6 +504,7 @@
     <script async defer src="{{asset('https://buttons.github.io/buttons.js')}}"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{asset('admin/assets/js/material-dashboard.min.js?v=3.0.0')}}"></script>
+
 </main>
 </body>
 

@@ -11,7 +11,7 @@
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">name</th>
-                    <th scope="col">description</th>
+{{--                    <th scope="col">description</th>--}}
                     <th scope="col">image</th>
                     <th scope="col">action</th>
                 </tr>
@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
-                    <td>{{$item->description}}</td>
+{{--                    <td>{!! $item->description !!}</td>--}}
 
                     <td> <img src="{{ asset('assets/uploads/category/' . $item->image) }}" width="200px;" alt="image here" /> </td>
                     <td><a href="{{url('edit-category/'.$item->id)}}" class="btn btn-primary bg-gradient-primary" >edit</a>
